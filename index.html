@@ -29,7 +29,7 @@
         
         <input type="text" id="qrInput" placeholder="Enter your Data">
 
-        <select id="imageSize">
+        <select id="imageSize" onchange="updateImageSize()">
             <option value="size" disabled selected>Choose Size</option>
             <option value="200">200x200</option>
             <option value="300">300x300</option>
@@ -49,7 +49,7 @@
         <button id="DownloadBtn">Download</button>
     </footer>
 
-    
+
 
     <script src="index.js">"main js"</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
