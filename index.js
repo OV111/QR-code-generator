@@ -50,21 +50,14 @@ const generateQR = () => {
 generateBtn.addEventListener("click", generateQR);
 
 
-
 //! change all function with arrow f           and add show/hide spinner like loading 
 function check() {
     // check for valid and selected values in input fields!!!
 }
-
-
-
-
-
-
-
 function updateInputField() {
 
 }
 function updateImageSize() {
 
 }
+//!
