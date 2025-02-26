@@ -18,7 +18,7 @@
             Just input your data, choose the type of QR code and size, and generate it instantly.
         </p>
         
-        <select id="qrType" onchange="updateInputField()">
+        <select id="qrType"> <!--onchange="updateInputField()"-->
             <option value="choose" disabled selected>Choose Type</option>
             <option value="url">Website URL </option>
             <option value="phone">Phone Number</option>
@@ -29,7 +29,7 @@
         
         <input type="text" id="qrInput" placeholder="Enter your Data">
 
-        <select id="imageSize" onchange="updateImageSize()">
+        <select id="imageSize"><!--onchange="updateImageSize()"-->
             <option value="size" disabled selected>Choose Size</option>
             <option value="200">200x200</option>
             <option value="300">300x300</option>
@@ -45,10 +45,10 @@
     </div>
 
     <footer class="footer">
-        <img src="" alt="Generated QR code" id="">
+        <!-- <img id="QRimage" src="" alt="Generated QR code image" > -->
+        <div id="QRimage"></div>
         <button id="DownloadBtn">Download</button>
     </footer>
-
 
 
     <script src="index.js">"main js"</script>
