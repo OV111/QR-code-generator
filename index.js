@@ -1,5 +1,5 @@
 const qrType = document.getElementById("qrType");
-const qrInput = document.getElementById("qrInput");
+let qrInput = document.getElementById("qrInput");
 const imageSize = document.getElementById("imageSize");
 
 const generateBtn = document.getElementById("GenerateBtn");
@@ -9,7 +9,7 @@ const downloadBtn = document.getElementById("DownloadBtn");
 
 const generateQR = () => {
     const typeData = qrType.value;             // the type of qr
-    const inputData = qrInput.value.trim();    // what we write input field
+    let inputData = qrInput.value.trim();    // what we write input field
     const imageSizeData = imageSize.value;     // size of image
     let data;
     if(typeData !== "choose") {                       //! need to think about input validation
@@ -44,15 +44,15 @@ const generateQR = () => {
         return;
     }
     
+    qrContainer.innerHTML = "";
+    
     new QRCode(qrContainer,{
         text: data,
         width: imageSizeData,
         height: imageSizeData,
     });
-                                                        //! need to update the image in case of 
-                                                        //! one more generateBtn 
+    qrInput.value = "";
 }   
-
 
 generateBtn.addEventListener("click", generateQR);
 
