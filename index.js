@@ -41,7 +41,6 @@ const generateQR = () => {
     }
     if(imageSizeData === "size") {
         alert("Pls Enter image size!");
-        // throw new Error("break");
         return;
     }
     
@@ -50,7 +49,7 @@ const generateQR = () => {
         width: imageSizeData,
         height: imageSizeData,
     });
-                             //! need to update the image in case of 
+                                                        //! need to update the image in case of 
                                                         //! one more generateBtn 
 }   
 
