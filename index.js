@@ -33,7 +33,6 @@ const generateQR = () => {
         }
     } else {
         alert("Pls Choose Type!");
-        // throw new Error("break");
         return;
     }
     if(inputData === "") {
