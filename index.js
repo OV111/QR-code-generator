@@ -7,13 +7,12 @@ const qrContainer = document.getElementById("QRimage");
 const downloadBtn = document.getElementById("DownloadBtn");
 
 
-
 const generateQR = () => {
     const typeData = qrType.value;             // the type of qr
     const inputData = qrInput.value.trim();    // what we write input field
     const imageSizeData = imageSize.value;     // size of image
     let data;
-    if(typeData) {                       //! need to think about input validation
+    if(typeData !== "choose") {                       //! need to think about input validation
         if(typeData === "url") {
             data = `https://${inputData}`;             
         } else if(typeData === "phone") {
@@ -27,23 +26,33 @@ const generateQR = () => {
             if(x.length === 2) {
                 let latitude = x[0];
                 let longitude = x[1];
-                data = `geo: ${latitude},${longitude}`;
+                data = `geo:${latitude},${longitude}`;
             }
         } else {
-            alert("Pls enter Valid Type");
+            alert("Pls enter Valid Type!");
         }
+    } else {
+        alert("Pls Choose Type!");
+        // throw new Error("break");
+        return;
     }
-    console.log(data)
-    const qrcode = new QRCode(qrContainer,{
+    if(inputData === "") {
+        alert("Pls Enter Data!");
+        return;
+    }
+    if(imageSizeData === "size") {
+        alert("Pls Enter image size!");
+        // throw new Error("break");
+        return;
+    }
+    
+    new QRCode(qrContainer,{
         text: data,
         width: imageSizeData,
         height: imageSizeData,
     });
-    // console.log(qrcode.text)
-    console.log(qrContainer)                               //! need to update the image in case of 
+                             //! need to update the image in case of 
                                                         //! one more generateBtn 
-    // console.log(qrcode,qrContainer.);
-        // console.log(typeData,inputData,imageSizeData);
 }   
 
 
