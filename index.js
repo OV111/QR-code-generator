@@ -9,10 +9,10 @@ const downloadBtn = document.getElementById("DownloadBtn");
 
 const generateQR = () => {
     const typeData = qrType.value;             // the type of qr
-    const inputData = qrInput.value.trim();    // what we write input field
+    const inputData = qrInput.value.trim();    // what we write in input field
     const imageSizeData = imageSize.value;     // size of image
     let data;
-    if(typeData !== "choose") {                       //! need to think about input validation
+    if(typeData !== "choose") {
         if(typeData === "url") {
             data = `https://${inputData}`;             
         } else if(typeData === "phone") {
@@ -24,8 +24,8 @@ const generateQR = () => {
         } else if(typeData === "gps") {
             let x = inputData.split(",");
             if(x.length === 2) {
-                let latitude = x[0];
-                let longitude = x[1];
+                let latitude = x[0].trim();
+                let longitude = x[1].trim();
                 data = `geo:${latitude},${longitude}`;
             }
         } else {
