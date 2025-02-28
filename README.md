@@ -18,4 +18,4 @@ A simple and user-friendly QR Code Generator that allows users to create custom 
 2.Open the `index.html` file in your browser to use the QR Code Generator.
 
 ## View Live Demo
-![Image](https://github.com/user-attachments/assets/930567bd-89ed-4bf6-b9ca-843e09078675)
+![Image](https://github.com/user-attachments/assets/0d0bf955-209c-4da1-90fc-2e1b7f83ac7c)
