@@ -5,8 +5,7 @@
 }
 :root {
     --font-family: Arial, Helvetica, sans-serif;
-    --background-color: "#F4F4F4";
-    /* adding... */
+    --background-color: #F4F4F4;
 }
 body {
     font-family: var(--font-family);
@@ -121,8 +120,6 @@ body {
     top: 105px;
 }
 #QRimage {
-    /* width: 300px;
-    height: 300px; */
     margin: 10px 550px 0px;
     border: none;
     text-decoration: none;  
@@ -144,4 +141,44 @@ body {
 #DownloadBtn:hover {
     transform:scale(1.1);
     transition: 0.2s ease-in-out;
+}
+@media (max-width: 1024px) {
+    .main p {
+        width: 450px;
+    }
+    .main #qrType {
+        margin: 0px 150px;
+    }
+    .main #qrInput {
+        margin: 0px 150px;
+    }
+    .main #imageSize {
+        margin: 0px 150px;
+    }
+    .main #GenerateBtn {
+        width: 200px;
+        margin: 10px 200px 0px;
+    }
+    .footer #DownloadBtn {
+        width: 200px;
+        margin: 30px 200px 0px;
+    }
+    #image {
+        display: none;
+    }
+}
+@media (max-width:768px) {
+    .main p {
+        width: 50%;
+        margin: 100px 80px 15px;
+    }
+    .main #qrType {
+        margin: 0px 80px;
+    }
+    .main #qrInput {
+        margin: 0px 80px;
+    }
+    .main #imageSize {
+        margin: 0px 80px;
+    }
 }
