@@ -12,6 +12,10 @@ const generateQR = () => {
     const inputData = qrInput.value.trim();    // what we write in input field
     const imageSizeData = imageSize.value;     // size of image
     let data;
+
+
+    
+    
     if(typeData !== "choose") {
         if(typeData === "url") {
             data = `https://${inputData}`;             
@@ -50,10 +54,32 @@ const generateQR = () => {
         width: imageSizeData,
         height: imageSizeData,
     });
+    
+    
+  
+
     qrInput.value = "";
 }   
 
 generateBtn.addEventListener("click", generateQR);
 
+
+
+
+const downloadQR = () => {          
+    
+    let canvas = document.querySelector("#QRimage canvas");
+    let saveDat = canvas.toDataURL("image/png");
+    // console.log(saveDat)
+    const link = document.createElement("a");
+    link.href = saveDat;
+    link.download = "qr_code.png";
+    link.click();
+}
+downloadBtn.addEventListener("click",downloadQR);
+
+// downloadBtn.addEventListener("click",() => {
+//     downloadQR;
+// });
 
 //! change all function with arrow f           and add show/hide spinner like loading 
