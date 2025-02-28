@@ -13,7 +13,7 @@ A simple and user-friendly QR Code Generator that allows users to create custom 
 1.Clone the repo:
 ```sh
     git clone https://github.com/OV111/QR-code-generator.git
-    cd YourFileName
+    cd QR-code-generator
 ```
 2.Open the `index.html` file in your browser to use the QR Code Generator.
 
