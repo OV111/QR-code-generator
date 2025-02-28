@@ -1,24 +1,24 @@
 const qrType = document.getElementById("qrType");
 const qrInput = document.getElementById("qrInput");
 const imageSize = document.getElementById("imageSize");
-
 const generateBtn = document.getElementById("GenerateBtn");
 const qrContainer = document.getElementById("QRimage");
 const downloadBtn = document.getElementById("DownloadBtn");
-
+const marginMap = {
+    "200": "10px 600px 0px",
+    "300": "10px 550px 0px",
+    "400": "30px 500px 0px",
+    "500": "30px 450px 0px",
+};
 
 const generateQR = () => {
-    const typeData = qrType.value;             // the type of qr
-    const inputData = qrInput.value.trim();    // what we write in input field
-    const imageSizeData = imageSize.value;     // size of image
+    const typeData = qrType.value;
+    const inputData = qrInput.value.trim();
+    const imageSizeData = imageSize.value;
     let data;
-
-
-    
-    
     if(typeData !== "choose") {
         if(typeData === "url") {
-            data = `https://${inputData}`;             
+            data = `https://${inputData}`;    
         } else if(typeData === "phone") {
             data = `tel:${inputData}`;
         } else if(typeData === "email") {
@@ -33,12 +33,13 @@ const generateQR = () => {
                 data = `geo:${latitude},${longitude}`;
             }
         } else {
-            alert("Pls enter Valid Type!");
+            alert("Pls enter Valid QR Type!");
         }
     } else {
         alert("Pls Choose Type!");
         return;
     }
+
     if(inputData === "") {
         alert("Pls Enter Data!");
         return;
@@ -47,39 +48,29 @@ const generateQR = () => {
         alert("Pls Enter image size!");
         return;
     }
-    
+    qrContainer.style.margin = marginMap[imageSizeData] || qrContainer.style.margin;
     qrContainer.innerHTML = "";
     new QRCode(qrContainer,{
         text: data,
         width: imageSizeData,
         height: imageSizeData,
     });
-    
-    
-  
-
     qrInput.value = "";
 }   
 
-generateBtn.addEventListener("click", generateQR);
-
-
-
-
 const downloadQR = () => {          
-    
-    let canvas = document.querySelector("#QRimage canvas");
-    let saveDat = canvas.toDataURL("image/png");
-    // console.log(saveDat)
+    const canvas = document.querySelector("#QRimage canvas");
+    if(!canvas) {alert("Pls Generate QR Code First!"); return; };
+    const saveDat = canvas.toDataURL("image/png");
     const link = document.createElement("a");
     link.href = saveDat;
     link.download = "qr_code.png";
     link.click();
+    setTimeout(() => {
+        qrContainer.innerHTML = "";
+    },3000);
 }
+
+generateBtn.addEventListener("click", generateQR);
 downloadBtn.addEventListener("click",downloadQR);
-
-// downloadBtn.addEventListener("click",() => {
-//     downloadQR;
-// });
-
-//! change all function with arrow f           and add show/hide spinner like loading 
+//! and add show/hide spinner like loading
