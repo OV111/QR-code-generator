@@ -13,12 +13,13 @@ const marginMap = {
 
 const generateQR = () => {
     const typeData = qrType.value;
-    const inputData = qrInput.value.trim();
+    let inputData = qrInput.value.trim();
     const imageSizeData = imageSize.value;
     let data;
     if(typeData !== "choose") {
         if(typeData === "url") {
-            data = `https://${inputData}`;    
+            inputData.startsWith("https://") ? inputData = inputData.slice(8) : null
+            data = `https://${inputData}`;
         } else if(typeData === "phone") {
             data = `tel:${inputData}`;
         } else if(typeData === "email") {
@@ -73,4 +74,5 @@ const downloadQR = () => {
 
 generateBtn.addEventListener("click", generateQR);
 downloadBtn.addEventListener("click",downloadQR);
-//! and add show/hide spinner like loading
+
+//! and add show/hide spinner like loading and just need to check little bugs!
