@@ -71,8 +71,5 @@ const downloadQR = () => {
         qrContainer.innerHTML = "";
     },3000);
 }
-
 generateBtn.addEventListener("click", generateQR);
 downloadBtn.addEventListener("click",downloadQR);
-
-//! and add show/hide spinner like loading and just need to check little bugs!
