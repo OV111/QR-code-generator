@@ -15,7 +15,6 @@ A simple and user-friendly QR Code Generator that allows users to create custom 
     git clone https://github.com/OV111/QR-code-generator.git
     cd QR-code-generator
 ```
-2.Open the `index.html` file in your browser to use the QR Code Generator.
 
 ## View Live Demo
 ![Image](https://github.com/user-attachments/assets/0d0bf955-209c-4da1-90fc-2e1b7f83ac7c)
